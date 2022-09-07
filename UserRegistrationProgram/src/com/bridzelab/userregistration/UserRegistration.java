@@ -1,5 +1,5 @@
 /*
-*purpose=Rule 2: should have atleast one uppercase letter
+*purpose=Rule 3: should have atleast one number
 * @author= sushmitha
 * @since=07-10-2022
 */
@@ -72,10 +72,11 @@ public class UserRegistration
      * Uc5: Validating password
      * Rule 1: should have atleast 8 characters
      * Uc6: Rule 2: should have atleast one uppercase letter
+     * Uc7: Rule 3: should have atleast one number
      */
     public static boolean isPasswordValid(String password)
     {
-        String regex = "^[a-zA-Z]{8,}";
+        String regex = "^[a-zA-Z0-9]{8,}";
         Pattern patt = Pattern.compile(regex);
         if (password == null)
         {
@@ -84,6 +85,7 @@ public class UserRegistration
         Matcher match = patt.matcher(password);
         return match.matches();
     }
+
     public static void main(String[] args)
     {
         System.out.println("We;come To user Registration Program");
@@ -135,8 +137,7 @@ public class UserRegistration
             System.out.println("Password is Invalid");
         }
 
-
-
     }
 
 }
+
