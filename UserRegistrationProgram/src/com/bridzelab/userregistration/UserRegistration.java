@@ -1,6 +1,5 @@
 /*
-*purpose= As a User need to enter a valid Lastname
-* Last name starts with Cap and has minimum 3 characters
+*purpose= User need to enter a valid email
 * @author= sushmitha
 * @since=07-10-2022
 */
@@ -43,6 +42,20 @@ public class UserRegistration
         Matcher match2 = patt2.matcher(lastname);
         return match2.matches();
     }
+    // Creating validateEmail method to validate the Email given by user using regex
+
+    public static String validateEmail(String email)
+    {
+        if (Pattern.matches("^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?",
+                email))
+        {
+            return "valid";
+        }
+        else
+        {
+            return "invalid";
+        }
+    }
 
     public static void main(String[] args)
     {
@@ -55,16 +68,25 @@ public class UserRegistration
         String firstname = input.nextLine();
         System.out.println("Enter lastname:");
         String lastname = input.nextLine();
-        if (isFirstName(firstname) == true) {
+        System.out.println("Enter the email");
+        String email = input.nextLine();
+        if (isFirstName(firstname) == true)
+        {
             System.out.println("Firstname is Correct");
-        } else {
+        }
+        else
+        {
             System.out.println("Firstname is Incorrect");
         }
-        if (isLastName(lastname) == true) {
+        if (isLastName(lastname) == true)
+        {
             System.out.println("Lastname is Correct");
-        } else {
+        }
+        else
+        {
             System.out.println("Lastname is Incorrect");
         }
+        System.out.println("Email: " + validateEmail(email));
     }
 
 }
