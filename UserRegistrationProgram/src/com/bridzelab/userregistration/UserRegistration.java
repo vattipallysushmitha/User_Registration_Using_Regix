@@ -1,6 +1,6 @@
 /*
-*purpose=As a User need to enter a valid First Name
-*        - First name starts with Cap and has minimum 3 characters
+*purpose= As a User need to enter a valid Lastname
+* Last name starts with Cap and has minimum 3 characters
 * @author= sushmitha
 * @since=07-10-2022
 */
@@ -30,6 +30,20 @@ public class UserRegistration
         return match.matches();
     }
 
+    // Creating isValidLastName method to validate the last name given by user using regex
+    public static boolean isLastName(String lastname)
+    {
+
+        String regex = "^[A-Z]{1}[a-z]{2,}";
+        Pattern patt2 = Pattern.compile(regex);
+        if (lastname == null)
+        {
+            return false;
+        }
+        Matcher match2 = patt2.matcher(lastname);
+        return match2.matches();
+    }
+
     public static void main(String[] args)
     {
         System.out.println("We;come To user Registration Program");
@@ -39,13 +53,17 @@ public class UserRegistration
 
         System.out.println("Enter firstname:");
         String firstname = input.nextLine();
-        if (isFirstName(firstname) == true)
-        {
-            System.out.println("Given Firstname is Correct");
+        System.out.println("Enter lastname:");
+        String lastname = input.nextLine();
+        if (isFirstName(firstname) == true) {
+            System.out.println("Firstname is Correct");
+        } else {
+            System.out.println("Firstname is Incorrect");
         }
-        else
-        {
-            System.out.println("Given Firstname is Incorrect");
+        if (isLastName(lastname) == true) {
+            System.out.println("Lastname is Correct");
+        } else {
+            System.out.println("Lastname is Incorrect");
         }
     }
 
