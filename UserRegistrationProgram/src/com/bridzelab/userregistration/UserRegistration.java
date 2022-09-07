@@ -56,6 +56,18 @@ public class UserRegistration
             return "invalid";
         }
     }
+    // Creating isMobileFormatValid method to validate the mobile number given by user using regex
+    public static boolean isMobileFormatValid(String mobile)
+    {
+
+        String regex = "^((\\+)?(\\d{2}[\\s]))?(\\d{10}){1}?$";
+        Pattern patt = Pattern.compile(regex);
+        if (mobile == null) {
+            return false;
+        }
+        Matcher match = patt.matcher(mobile);
+        return match.matches();
+    }
 
     public static void main(String[] args)
     {
@@ -70,24 +82,25 @@ public class UserRegistration
         String lastname = input.nextLine();
         System.out.println("Enter the email");
         String email = input.nextLine();
-        if (isFirstName(firstname) == true)
-        {
+        System.out.println("Enter mobile number");
+        String phoneNo = input.nextLine();
+        if (isFirstName(firstname) == true) {
             System.out.println("Firstname is Correct");
-        }
-        else
-        {
+        } else {
             System.out.println("Firstname is Incorrect");
         }
-        if (isLastName(lastname) == true)
-        {
+        if (isLastName(lastname) == true) {
             System.out.println("Lastname is Correct");
-        }
-        else
-        {
+        } else {
             System.out.println("Lastname is Incorrect");
         }
         System.out.println("Email: " + validateEmail(email));
+        if (isMobileFormatValid(phoneNo) == true) {
+            System.out.println("Phone Number is correct");
+        } else {
+            System.out.println("Phone Number is Incorrect");
+        }
+
     }
 
 }
-
