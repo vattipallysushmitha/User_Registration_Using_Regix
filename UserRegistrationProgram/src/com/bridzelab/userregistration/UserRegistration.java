@@ -1,5 +1,5 @@
 /*
-*purpose= User need to validate the password
+*purpose=Rule 2: should have atleast one uppercase letter
 * @author= sushmitha
 * @since=07-10-2022
 */
@@ -69,11 +69,13 @@ public class UserRegistration
         return match.matches();
     }
     /*
-     * Uc5: Validating password Rule 1: should have atleast 8 characters
+     * Uc5: Validating password
+     * Rule 1: should have atleast 8 characters
+     * Uc6: Rule 2: should have atleast one uppercase letter
      */
     public static boolean isPasswordValid(String password)
     {
-        String regex = "^[a-z]{8,}";
+        String regex = "^[a-zA-Z]{8,}";
         Pattern patt = Pattern.compile(regex);
         if (password == null)
         {
@@ -82,7 +84,6 @@ public class UserRegistration
         Matcher match = patt.matcher(password);
         return match.matches();
     }
-
     public static void main(String[] args)
     {
         System.out.println("We;come To user Registration Program");
@@ -100,27 +101,41 @@ public class UserRegistration
         String phoneNo = input.nextLine();
         System.out.println("Enter password");
         String password = input.nextLine();
-        if (isFirstName(firstname) == true) {
+        if (isFirstName(firstname) == true)
+        {
             System.out.println("Firstname is Correct");
-        } else {
+        }
+        else
+        {
             System.out.println("Firstname is Incorrect");
         }
-        if (isLastName(lastname) == true) {
+        if (isLastName(lastname) == true)
+        {
             System.out.println("Lastname is Correct");
-        } else {
+        }
+        else
+        {
             System.out.println("Lastname is Incorrect");
         }
         System.out.println("Email: " + validateEmail(email));
-        if (isMobileFormatValid(phoneNo) == true) {
+        if (isMobileFormatValid(phoneNo) == true)
+        {
             System.out.println("Phone Number is correct");
-        } else {
+        }
+        else
+        {
             System.out.println("Phone Number is Incorrect");
         }
-        if (isPasswordValid(password) == true) {
+        if (isPasswordValid(password) == true)
+        {
             System.out.println("Password is Valid");
-        } else {
+        }
+        else
+        {
             System.out.println("Password is Invalid");
         }
+
+
 
     }
 
